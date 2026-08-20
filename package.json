@@ -1,0 +1,18 @@
+{
+  "name": "carddisplayelectron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^43.4.1"
+  },
+  "dependencies": {
+    "obs-websocket-js": "^5.0.8"
+  }
+}

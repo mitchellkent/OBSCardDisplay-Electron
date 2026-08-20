@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>OBS Image Display</title>
+	<!-- https://electronjs.org/docs/tutorial
+						/security#csp-meta-tag -->
+	<meta http-equiv="Content-Security-Policy" 
+		content="script-src 'self' 'unsafe-inline'; img-src 'self' file: data:;" />
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<div class="form-container connection-bar">
+		<div class="form-row">
+			<div class="form-group-inline">
+				<label for="url">OBS Address:</label>
+				<input type="text" id="url" placeholder="localhost:4444" />
+			</div>
+			<div class="form-group-inline">
+				<label for="password">Password:</label>
+				<input type="password" id="password" placeholder="OBS WebSocket password" />
+			</div>
+			<button id="connect-btn">Connect</button>
+			<button id="theme-toggle-btn">Dark Mode</button>
+		</div>
+	</div>
+
+	<div class="browser-controls">
+		<div class="top-bar">
+			<div class="form-group-inline folder-field">
+				<label for="folder-path">Folder:</label>
+				<input type="text" id="folder-path" placeholder="No folder selected" readonly />
+			</div>
+			<button id="browse-btn">Browse</button>
+			
+		</div>
+		<div class="form-group-inline search-field">
+				<label for="image-search">Search:</label>
+				<input type="text" id="image-search" placeholder="Filter images..." />
+			</div>
+		<div class="action-bar">
+			<div class="selected-image">
+				<label>Selected:</label>
+				<div id="selected-image-name" class="info">No image selected</div>
+			</div>
+			<div class="button-group">
+				<button id="show-timed-btn" class="btn-timed" disabled>Show Timed</button>
+				<button id="show-indefinite-btn" class="btn-indefinite" disabled>Show Indefinite</button>
+				<button id="hide-btn" class="btn-hide" disabled>Hide</button>
+			</div>
+			<div class="timing-group">
+				<div class="form-group-inline">
+					<label for="display-duration">Display (s):</label>
+					<input type="number" id="display-duration" min="0" step="0.1" value="3" />
+				</div>
+				<div class="form-group-inline">
+					<label for="fade-duration">Fade (s):</label>
+					<input type="number" id="fade-duration" min="0" step="0.1" value="2" />
+				</div>
+			</div>
+			<div class="status-field">
+				<label>Status:</label>
+				<div id="result"></div>
+			</div>
+		</div>
+	</div>
+	<div id="image-preview"></div>
+
+	<!-- Adding Individual Renderer Process JS File -->
+	<script src="index.js"></script>
+</body>
+</html>
